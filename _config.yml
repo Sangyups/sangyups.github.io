@@ -93,7 +93,7 @@ comments:
   # utterances settings › https://utteranc.es/
   utterances:
     repo: 'Sangyups/sangyups.github.io' # <gh-username>/<repo>
-    issue_term: title # < url | pathname | title | ...>
+    issue_term: pathname # < url | pathname | title | ...>
 
 paginate: 10
 
