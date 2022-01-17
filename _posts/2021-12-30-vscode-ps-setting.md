@@ -51,9 +51,10 @@ VSCode 상에서 설정해주어 명령어를 통한 컴파일이 가능하긴 �
 
 ```json
 "code-runner.executorMap": {
-    "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
-  },
+  "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+},
 ```
+{: file="settings.json"}
 
 `-std=c++17` 옵션을 통해 c++의 최신 문법을 사용할 수 있도록 해준다. 이것을 해주지 않는다면 최신 문법을 컴파일러가 읽지 못한다.
 
@@ -154,16 +155,16 @@ F5를 눌러 디버깅 설정을 시작하자. C++ (GDB/LLDB) 를 눌러준다.
 사실 이 글을 쓴 가장 큰 이유이기도 한데 나는 백준을 풀면서 문제 번호 별로 소스코드를 나눠서 저장하고 싶었다. 그래서 PS 폴더 내부에 문제_번호.cpp 로 이루어진 소스코드들로만 있었으면 좋겠다고 생각했다. 그렇기 때문에 위의 IDE들을 다 포기하고 이렇게 VSCode를 이용하여 PS 환경을 세팅한 것이다.
 
 ![Untitled 10](https://user-images.githubusercontent.com/80937237/149800253-9189a299-c590-4275-9b66-1f8f7034fdab.png)
+
 (위의 문제 번호는 예시이다.)
 
 그런데 이렇게 해도 디버깅 관련 파일과 실행파일이 어쩔 수 없이 남게 된다. 그래서 해당 소스코드를 빌드하고 실행이 끝나거나 디버깅이 끝나면 해당 파일들을 다 없애주고 싶어서 추가적으로 설정해주려고 한다.
 
 ```bash
-# clean.sh
-
 rm -rf ./*.dSYM
 ls -ar | grep -v "\." | xargs rm
 ```
+{: file="clean.sh"}
 
 같은 폴더 내에 다음과 같은 쉘 스크립트 파일을 작성한다. 간단하게 설명하면 첫 번째 줄은 .dSYM 으로 끝나는 디버깅 관련 폴더들을 다 지우고 두 번째 줄은 확장자가 없는 executable 파일들을 지워준다. 그리고 해당 쉘 스크립트를 각 action이 끝났을 때마다 실행되도록 해주면 된다.
 
@@ -207,8 +208,8 @@ ls -ar | grep -v "\." | xargs rm
 
 ```json
 "code-runner.executorMap": {
-    "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && $dir/clean.sh"
-  },
+  "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && $dir/clean.sh"
+},
 ```
-
+{: file="settings.json"}
 vscode의 `settings.json`에 들어가서 Executor Map 설정 끝에 위와 같이 `&& $dir/clean.sh` 를 붙여준다. `&&` 은 다중 명령어의 일종으로 `&&` 앞의 명령어가 정상적으로 실행 후 종료된 뒤 그 뒤의 명령어가 실행되도록 해준다. 그래서 실행이 끝나면 해당 디렉토리의 `clean.sh` 가 실행되는 것이다. 이것으로 모든 설정이 끝났고 vscode를 통해 PS를 하면서 이제 깨끗한 작업공간을 유지할 수 있다.
