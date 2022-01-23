@@ -4,9 +4,9 @@ categories:
   - Backend
   - Spring
 tags:
-  - Servlet
-  - JSP
-  - Spring
+  - servlet
+  - jsp
+  - spring
 date: 2022-01-23 14:23:00+0900
 last_modified_at: 2022-01-23 14:45:00+0900
 ---
