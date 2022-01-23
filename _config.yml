@@ -20,12 +20,11 @@ timezone: Asia/Seoul
 
 title: Sangyup의 블로그 # the main title
 
-tagline: 성장합시다. # it will display as the sub-title
+tagline: 열심히 공부합시다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  공부했던 것을 최대한 기록해보려고 합니다. 아직 미숙하지만
+  열심히 한다면 꾸준히 성장할 것이라고 믿고 있습니다.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://sangyups.github.io"
