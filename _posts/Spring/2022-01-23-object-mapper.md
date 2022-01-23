@@ -8,6 +8,7 @@ tags:
   - object_mapper
   - jackson_object_mapper
 date: 2022-01-23 18:11:00+0900
+last_modified_at: 2022-01-23 22:20:00+0900
 ---
 ## 개요
 
@@ -355,8 +356,6 @@ try {
   e.printStackTrace();
 }
 ```
-
-*복잡한 구조의 json 추가예정...*
 
 ## 참고자료
 
